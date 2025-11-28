@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Local Screenshare (WebTransport)</title>
+    <!-- Tailwind via CDN (no CSS files) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-slate-900 text-slate-100 min-h-screen">
+    <div id="app" class="max-w-5xl mx-auto p-4 space-y-6">
+      <header class="flex items-center justify-between">
+        <h1 class="text-2xl font-semibold">Local Screenshare</h1>
+        <div class="text-xs opacity-70">WebTransport + Vite + TS</div>
+      </header>
+
+      <section class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="md:col-span-2 space-y-3">
+          <div class="rounded-lg bg-slate-800 p-4 space-y-3">
+            <h2 class="text-lg font-medium">Connect</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 items-end">
+              <div class="md:col-span-2">
+                <label class="block text-sm mb-1" for="serverUrl">Server URL</label>
+                <input id="serverUrl" type="text" class="w-full rounded bg-slate-900 border border-slate-700 px-3 py-2"
+                  value="https://ls-wt.kota-yata.com:4433/baton" />
+              </div>
+              <button id="connectBtn" class="rounded bg-emerald-600 hover:bg-emerald-500 px-4 py-2">Connect</button>
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label class="block text-sm mb-1" for="roomId">Room</label>
+                <input id="roomId" type="text" placeholder="e.g. demo" class="w-full rounded bg-slate-900 border border-slate-700 px-3 py-2" />
+              </div>
+              <div>
+                <label class="block text-sm mb-1" for="displayName">Name</label>
+                <input id="displayName" type="text" placeholder="Your name" class="w-full rounded bg-slate-900 border border-slate-700 px-3 py-2" />
+              </div>
+            </div>
+            <div class="flex gap-3">
+              <button id="joinBtn" class="rounded bg-blue-600 hover:bg-blue-500 px-3 py-2">Join as Viewer</button>
+              <button id="shareBtn" class="rounded bg-fuchsia-600 hover:bg-fuchsia-500 px-3 py-2">Share Screen</button>
+              <button id="disconnectBtn" class="ml-auto rounded bg-slate-700 hover:bg-slate-600 px-3 py-2">Disconnect</button>
+            </div>
+          </div>
+
+          <div class="rounded-lg bg-slate-800 p-4 space-y-3">
+            <h2 class="text-lg font-medium">Status</h2>
+            <div id="status" class="text-sm font-mono bg-slate-900 rounded p-3 h-40 overflow-auto"></div>
+          </div>
+        </div>
+
+        <div class="space-y-3">
+          <div class="rounded-lg bg-slate-800 p-4 space-y-3">
+            <h2 class="text-lg font-medium">Local Preview</h2>
+            <video id="localVideo" autoplay muted playsinline class="w-full aspect-video bg-black rounded"></video>
+          </div>
+          <div class="rounded-lg bg-slate-800 p-4 space-y-3">
+            <h2 class="text-lg font-medium">Controls</h2>
+            <div class="text-sm opacity-80">
+              - Connect establishes a WebTransport session to the server.<br>
+              - Join/Share send control messages; screen capture preview only for now.
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+  </html>
