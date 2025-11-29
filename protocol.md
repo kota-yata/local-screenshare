@@ -1,5 +1,5 @@
 # Room over QUIC (RooQ)
-Room over QUIC (RooQ) is a room-oriented protocol operating over WebTransport. It specifies the messages exchanged between a client and a server to establish a room, publish media or data, and manage the session.
+Room over QUIC (RooQ) is a room-oriented pubsub protocol operating over QUIC or WebTransport. It specifies the messages exchanged between a client and a server to establish a room, publish media or data, and manage the session.
 
 ## Motivation and scope
 Accommodations for 10–20 people such as a cottage, villa, or chalet often lack reliable internet connectivity but do have a local network. When a group gathers in such places for a short presentation or hands‑on session, low‑friction, room‑local sharing becomes essential: not only screen video, but also audio, slides, whiteboard snapshots, input/control events, or other small artifacts.
